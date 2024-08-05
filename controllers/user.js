@@ -27,7 +27,8 @@ try{
     let success=false;
 
     // console.log(data)
-    const authtoken=jwt.sign(data, process.env.JWT_SECRET);
+    // const authtoken=jwt.sign(data, process.env.JWT_SECRET);
+    const authtoken = jwt.sign(data, process.env.JWT_SECRET, { expiresIn: '2s' });
     success=true;
     console.log()
     res.json({success, authtoken, data});
@@ -60,7 +61,8 @@ export const register = async (req, res,next)=>{
         let success=false;
     console.log("first")
         // console.log(data)
-        const authtoken=jwt.sign(data, process.env.JWT_SECRET);
+        // const authtoken=jwt.sign(data, process.env.JWT_SECRET);
+        const authtoken = jwt.sign(data, process.env.JWT_SECRET, { expiresIn: '2s' });
         success=true;
         res.json({success, authtoken});
         
